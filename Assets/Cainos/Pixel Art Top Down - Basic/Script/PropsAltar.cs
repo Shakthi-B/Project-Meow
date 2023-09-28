@@ -14,14 +14,22 @@ namespace Cainos.PixelArtTopDown_Basic
         private Color curColor;
         private Color targetColor;
 
+        public GameObject interactionCanvas;
+        public GameObject player;
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             targetColor = new Color(1, 1, 1, 1);
+        }
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            interactionCanvas.SetActive(true);
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
             targetColor = new Color(1, 1, 1, 0);
+            interactionCanvas.SetActive(false);
         }
 
         private void Update()

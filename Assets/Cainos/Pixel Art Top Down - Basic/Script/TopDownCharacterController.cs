@@ -18,24 +18,26 @@ namespace Cainos.PixelArtTopDown_Basic
 
         private void Update()
         {
+            float movX = SimpleInput.GetAxis("Horizontal");
+            float movY = SimpleInput.GetAxis("Vertical");
             Vector2 dir = Vector2.zero;
-            if (Input.GetKey(KeyCode.A))
+            if (movX < 0)
             {
                 dir.x = -1;
                 animator.SetInteger("Direction", 3);
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (movX > 0)
             {
                 dir.x = 1;
                 animator.SetInteger("Direction", 2);
             }
 
-            if (Input.GetKey(KeyCode.W))
+            if (movY > 0)
             {
                 dir.y = 1;
                 animator.SetInteger("Direction", 1);
             }
-            else if (Input.GetKey(KeyCode.S))
+            else if (movY < 0)
             {
                 dir.y = -1;
                 animator.SetInteger("Direction", 0);

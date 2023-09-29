@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     public float timeRemaining = 10;
     public bool timerIsRunning = false;
     public TextMeshProUGUI timeText;
+    private string Text;
 
     public TextMeshProUGUI ButtonText;
 
@@ -52,19 +53,78 @@ public class Timer : MonoBehaviour
 
     public void Meditate()
     {
-        if (!timerIsRunning)
+        if (timeText.text == "MEDITATE \n NOW" || Text == "MEDITATE \n NOW")
         {
-            timerIsRunning = true;
-            ButtonText.text = "CANCEL";
-            timeRemaining = 600;
-            player.speed = 0;
+            Text = "MEDITATE \n NOW";
+            if (!timerIsRunning)
+            {
+                timerIsRunning = true;
+                ButtonText.text = "CANCEL";
+                timeRemaining = 600;
+                player.speed = 0;
+            }
+            else
+            {
+                timerIsRunning = false;
+                timeText.text = "MEDITATE \n NOW";
+                ButtonText.text = "GO!!!";
+                player.speed = 5;
+            }
         }
-        else
+        if (timeText.text == "SLEEP \n NOW" || Text == "SLEEP \n NOW")
         {
-            timerIsRunning = false;
-            timeText.text = "MEDITATE \n NOW";
-            ButtonText.text = "GO!!!";
-            player.speed = 5;
+            Text = "SLEEP \n NOW";
+            if (!timerIsRunning)
+            {
+                timerIsRunning = true;
+                ButtonText.text = "CANCEL";
+                timeRemaining = 3600;
+                player.speed = 0;
+            }
+            else
+            {
+                timerIsRunning = false;
+                timeText.text = "SLEEP \n NOW";
+                ButtonText.text = "GO!!!";
+                player.speed = 5;
+            }
+        }
+        if (timeText.text == "CHAT \n NOW" || Text == "CHAT \n NOW")
+        {
+            Text = "CHAT \n NOW";
+            if (!timerIsRunning)
+            {
+                timerIsRunning = true;
+                ButtonText.text = "CANCEL";
+                timeRemaining = 900;
+                player.speed = 0;
+            }
+            else
+            {
+                timerIsRunning = false;
+                timeText.text = "CHAT \n NOW";
+                ButtonText.text = "GO!!!";
+                player.speed = 5;
+            }
+        }
+
+        if (timeText.text == "READ \n NOW" || Text == "READ \n NOW")
+        {
+            Text = "READ \n NOW";
+            if (!timerIsRunning)
+            {
+                timerIsRunning = true;
+                ButtonText.text = "CANCEL";
+                timeRemaining = 900;
+                player.speed = 0;
+            }
+            else
+            {
+                timerIsRunning = false;
+                timeText.text = "READ \n NOW";
+                ButtonText.text = "GO!!!";
+                player.speed = 5;
+            }
         }
 
     }
